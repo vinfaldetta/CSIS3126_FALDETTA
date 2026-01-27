@@ -34,7 +34,7 @@ Non-Functional Requirements
 •	Code readability and modular design
 Technology Stack (Proposed)
 Platforms (Client–Server)
-•	Client: Web or mobile front-end  (Android Studio Kotlin)
+•	Client:  mobile app front-end  (Android Studios Kotlin)
 •	Server: Backend API (Java Spring boot)
 Programming & Architecture
 •	Object-Oriented Programming (classes for User, Budget, Expense, Income)
