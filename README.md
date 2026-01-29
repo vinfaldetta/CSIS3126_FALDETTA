@@ -7,5 +7,5 @@ Technology Overview:
 
 Current Status:
 - Andriod Project created and running ("Hello World")
-- Emulator Tested
-- Backend architecture planned (Spring Boot)
+- Completed integration between the Android frontend and the Spring Boot backend.
+- Backend architecture motified test cases (Spring Boot)
