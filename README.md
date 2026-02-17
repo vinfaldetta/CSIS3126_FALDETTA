@@ -6,7 +6,3 @@ Technology Overview:
 - Spring Boot (Java) – Backend API
 - MYSQL (Database)
 
-Current Status:
-- Andriod Project created and running ("Hello World")
-- Completed integration between the Android frontend/Spring Boot backend along with SQL database connection.
-- Architecture motified test cases across (Spring and Android)
