@@ -13,11 +13,15 @@ public class Transaction {
 
     private Long userId;
     private Double amount;
-    private String category;
     private String description;
     private LocalDate date;
 
+    // Many transactions belong to one category
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
+    // Getters & Setters
     public Long getId() {
         return id;
     }
@@ -38,14 +42,6 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -60,5 +56,13 @@ public class Transaction {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
