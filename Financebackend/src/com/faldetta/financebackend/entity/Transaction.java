@@ -16,12 +16,14 @@ public class Transaction {
     private String description;
     private LocalDate date;
 
-    // Many transactions belong to one category
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private TransactionType type;
+
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
-    // Getters & Setters
     public Long getId() {
         return id;
     }
@@ -56,6 +58,14 @@ public class Transaction {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public TransactionType getType() {
+        return type;
+    }
+
+    public void setType(TransactionType type) {
+        this.type = type;
     }
 
     public Category getCategory() {
