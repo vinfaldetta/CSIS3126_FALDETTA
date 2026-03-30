@@ -10,30 +10,19 @@ public class Income {
     private Long id;
 
     private String source;
-
     private double amount;
 
-    public Long getId() {
-        return id;
-    }
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    public String getSource() {
-        return source;
-    }
+    public Long getId() { return id; }
+    public String getSource() { return source; }
+    public double getAmount() { return amount; }
+    public User getUser() { return user; }
 
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
+    public void setId(Long id) { this.id = id; }
+    public void setSource(String source) { this.source = source; }
+    public void setAmount(double amount) { this.amount = amount; }
+    public void setUser(User user) { this.user = user; }
 }

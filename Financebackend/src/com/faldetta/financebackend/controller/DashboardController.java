@@ -16,19 +16,22 @@ public class DashboardController {
     @Autowired
     private ExpenseRepository expenseRepository;
 
-    @GetMapping
-    public DashboardSummary getDashboardSummary() {
+    // ✅ FIXED: user-specific dashboard
+    @GetMapping("/{userId}")
+    public DashboardSummary getDashboardSummary(@PathVariable Long userId) {
 
-        double totalIncome = incomeRepository.findAll()
+        double totalIncome = incomeRepository.findByUser_Id(userId)
                 .stream()
                 .mapToDouble(income -> income.getAmount())
                 .sum();
 
-        double totalExpenses = expenseRepository.findAll()
+        double totalExpenses = expenseRepository.findByUser_Id(userId)
                 .stream()
                 .mapToDouble(expense -> expense.getAmount())
                 .sum();
 
-        return new DashboardSummary(totalIncome, totalExpenses);
+        double balance = totalIncome - totalExpenses;
+
+        return new DashboardSummary(totalIncome, totalExpenses, balance);
     }
 }

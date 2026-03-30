@@ -14,19 +14,15 @@ public class IncomeController {
     @Autowired
     private IncomeRepository incomeRepository;
 
-    // SAVE income
     @PostMapping
     public Income createIncome(@RequestBody Income income) {
         return incomeRepository.save(income);
     }
 
-    // GET all income
-    @GetMapping
-    public List<Income> getAllIncome() {
-        return incomeRepository.findAll();
+    @GetMapping("/{userId}")
+    public List<Income> getIncomeByUser(@PathVariable Long userId) {
+        return incomeRepository.findByUser_Id(userId); // ✅ FIXED
     }
-
-    // DELETE income
     @DeleteMapping("/{id}")
     public void deleteIncome(@PathVariable Long id) {
         incomeRepository.deleteById(id);
