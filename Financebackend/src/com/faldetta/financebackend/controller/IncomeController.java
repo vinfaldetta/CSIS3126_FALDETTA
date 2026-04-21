@@ -21,7 +21,8 @@ public class IncomeController {
 
     @GetMapping("/{userId}")
     public List<Income> getIncomeByUser(@PathVariable Long userId) {
-        return incomeRepository.findByUser_Id(userId); // ✅ FIXED
+        List<Income> incomeList = incomeRepository.findByUser_Id(userId);
+        return incomeList != null ? incomeList : List.of(); // never null
     }
     @DeleteMapping("/{id}")
     public void deleteIncome(@PathVariable Long id) {
